@@ -1,12 +1,12 @@
 # Final ORM Test
 
-* We will now test your ORM. 
+* We will now test your ORM.
 * Create a terminal application that creates a todo list using ARGV and saves the lists using your baby ORM
 
 For example:
 
 ```
-python3 todolist.py add do laundry  
+python3 todolist.py add do laundry
 python3 todolist.py add buy groceries
 python3 todolist.py list
 python3 todolist.py complete <task id>
@@ -20,7 +20,7 @@ python3 todolist.py delete <task id>
 ##### Design and create your database
 
 * You will make a createdb.py file
-* Design your schema. 
+* Design your schema.
 * Create your database and seed it with some dummy data
 
 ##### Todo.py
