@@ -78,4 +78,4 @@ kant.xml
     * todos-baby-orm
     * unix-ninja-two
 
-* Notice that there is a directory today called `orm_example_solutions`. LOOK AT THIS FILE WITH CAUTION! This shows you ONE way to solve the baby_orm challenge. Only use this is you want to see how someone has solved the baby_orm challenge. Remembering that copying/pasting someone else's code teaches you nothing.
+* Notice that there is a directory today called `orm_example_solutions`. LOOK AT THIS FILE WITH CAUTION! This shows you ONE way to solve the baby_orm challenge. Only use this if you want to see how someone has solved the baby_orm challenge. Remember that copying/pasting someone else's code teaches you nothing.
