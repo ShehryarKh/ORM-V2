@@ -68,7 +68,9 @@ kant.xml
 ```
 * What this example is meant to demonstrate is that sys.argv allows us to access the `command-line arguments` that a user passes to our program.
 * `sys.argv` will contain a list of all the words that are typed after the name of the program.
+
 ##### Part 3 - Introduction to today's challenges:
+
 * All of the instructions you'll need are included within the respective README file for each exercise.
 * We recommend that that you do the exercises in the following chronological order:
 
