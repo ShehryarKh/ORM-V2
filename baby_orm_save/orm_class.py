@@ -3,12 +3,10 @@ import pudb
 
 
 class Model:
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.id = id
-        #self.filename = 
-        #self.name = name
-        #self.class_name = class_name
-        #self.table_name = table_name
+        for key, value in kwargs.items():
+            setattr(self, key, value)
         
 
     @classmethod
@@ -19,20 +17,11 @@ class Model:
 
         print(table_name)
 
-        # get table name
-
-        # 2 get 
-
         cursor = conn.cursor()
         cursor.execute(
 
-           
-
             """ SELECT * FROM {}""".format(table_name,)
             )
-
-#""" SELECT * FROM %s"""%(table_name))
-# """ SELECT * FROM {}""".format(table_name))
 
         row =cursor.fetchall()
         conn.commit()
@@ -52,7 +41,6 @@ class Model:
             columkey = key
             columvalue = value 
 
-
         cursor.execute(
 
             """ SELECT * FROM {} Where {} = \"{}\";""".format(table_name, columkey, columvalue))
@@ -60,20 +48,16 @@ class Model:
         conn.commit()
         conn.close()
 
-        print(row)
-        
 
     @classmethod
     def filter(cls, **kwargs):
         conn  = sqlite3.connect("babyorm.db")
         cursor = conn.cursor()
         table_name = cls.__name__
-
         for key, value in kwargs.items():
             columkey = key
-            columvalue = value 
+            columvalue = value
 
- 
         c = """ SELECT * FROM {} Where {} = \"{}\" ;""".format(table_name, columkey, columvalue)
         cursor.execute(c)
         print(c)
@@ -84,6 +68,23 @@ class Model:
         print(row)
         
 
+    @classmethod
+    def save(cls, **kwargs):
+    	conn = sqlite3.connect("babyorm.db")
+    	cursor = conn.cursor()
+    	table_name = cls.__name__
+
+    	for key, value in kwargs.items():
+            columkey = key
+            columvalue = value
+
+    	cursor.execute(
+    		""" INSERT INTO {};""".format(table_name)
+    		)
+
+
+
+
 
 # don't touch the code for these
 class Users(Model):
@@ -93,9 +94,8 @@ class Users(Model):
 class Stocks(Model):
     pass
 
-Users.all()
-#Stocks.all()
+print(Users.all())
 dic={"name":"Myles","name":"Sandra"}
-Users.get(**dic)
-Users.filter(**dic)
+#Users.get(**dic)
+#Users.filter(**dic)
 #Stocks.all()
