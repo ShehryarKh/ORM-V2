@@ -69,19 +69,34 @@ class Model:
         
 
     @classmethod
-    def save(cls, **kwargs):
+    def save(cls):
     	conn = sqlite3.connect("babyorm.db")
     	cursor = conn.cursor()
     	table_name = cls.__name__
 
+    	
     	for key, value in kwargs.items():
             columkey = key
             columvalue = value
 
-    	cursor.execute(
-    		""" INSERT INTO {};""".format(table_name)
-    		)
+        key_statement = ""
+       value_statement = ""
 
+       for key in kwargs.keys():
+           # create a string of all the columns
+           key_statement += "{},".format(key)
+           # create a list of all the values         
+           value_statement += '"{}",'.format(kwargs[key])
+
+           # check all the columns are in the db - ?!
+       value_statement = value_statement[:-1]
+       key_statement = key_statement[:-1]
+
+        c.execute("""
+       INSERT INTO {x} ({y}) VALUES (?);
+       """.format(x=table_name, y=key_statement),(value_statement,)
+       )
+       connection.commit()
 
 
 
